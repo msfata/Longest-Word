@@ -1,0 +1,40 @@
+package com;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class LongestWordChallenge {
+	/*
+	 * finding largest world in size
+	 */
+	public static String LongestWord(String sen) {
+		List<String> tokens = new LinkedList<String>();
+		StringTokenizer tk = new StringTokenizer(sen);
+		while (tk.hasMoreElements()) {
+			tokens.add(tk.nextToken());
+		}
+
+		String largest = tokens.get(0);
+		for (int i = 0; i < tokens.size(); i++) {
+			if (largest.length() < tokens.get(i).length()) {
+				largest = tokens.get(i);
+			}
+		}
+
+		sen = largest;
+
+		return sen;
+
+	}
+
+	/*
+	 * testing
+	 */
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.print(LongestWord(s.nextLine()));
+	}
+
+}
